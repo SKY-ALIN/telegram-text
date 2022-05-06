@@ -57,3 +57,7 @@ class Italic(Style):
 
     def to_html(self) -> str:
         return f"<i>{self.text.to_html()}</i>"
+
+
+class Underline(Style):
+    pass

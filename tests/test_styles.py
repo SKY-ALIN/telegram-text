@@ -2,6 +2,7 @@ from telegram_text.styles import (
     Bold,
     PlainText,
     Italic,
+    Underline,
 )
 
 testing_string = "Hello world!"
@@ -32,3 +33,12 @@ def test_italic():
     assert str(obj) == '_' + testing_string + '_'
     assert obj.to_markdown() == '_' + testing_string + '_'
     assert obj.to_html() == '<i>' + testing_string + '</i>'
+
+
+def test_underline():
+    obj = Underline(testing_string)
+    assert obj.text.to_plain_text() == testing_string
+    assert obj.to_plain_text() == testing_string
+    assert str(obj) == '__' + testing_string + '__'
+    assert obj.to_markdown() == '__' + testing_string + '__'
+    assert obj.to_html() == '<u>' + testing_string + '</u>'
