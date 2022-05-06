@@ -33,6 +33,8 @@ class Style(AbstractElement, ABC):
     def __init__(self, text: Union[str, AbstractElement]):
         if isinstance(text, str):
             text = PlainText(text)
+        if self.__class__ is text.__class__:
+            text = text.text
         self.text: AbstractElement = text
 
     def to_plain_text(self) -> str:

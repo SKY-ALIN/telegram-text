@@ -35,6 +35,9 @@ def test_italic():
     assert obj.to_markdown() == '_' + testing_string + '_'
     assert obj.to_html() == '<i>' + testing_string + '</i>'
 
+    obj = Italic(Italic(Italic(testing_string)))
+    assert obj.to_markdown() == '_' + testing_string + '_'
+
 
 def test_underline():
     obj = Underline(testing_string)
