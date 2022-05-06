@@ -1,20 +1,21 @@
-name: Code Quality
+name: Testing
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ["3.7"]
+        python-version: ["3.7", "3.8", "3.9", "3.10"]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -34,13 +35,10 @@ jobs:
 
     - name: Install dependencies
       if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-      run: poetry install --no-interaction --no-root
+      run: poetry install --no-interaction
 
     - name: Install library
       run: poetry install --no-interaction
 
-    - name: Code Quality
-      run: |
-        source .venv/bin/activate
-        flake8 telegram_text
-        find . -iname "*.py" -not -path "./.venv/*" | xargs pylint
+    - name: Test with pytest
+      run: pytest
