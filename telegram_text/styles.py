@@ -68,4 +68,5 @@ class Underline(Style):
 
 
 class Strikethrough(Style):
-    pass
+    MARKDOWN_SYMBOL = '~'
+    HTML_TAG = 's'
