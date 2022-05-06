@@ -49,3 +49,7 @@ class Bold(Style):
 
     def to_html(self) -> str:
         return f"<b>{self.text.to_html()}</b>"
+
+
+class Italic(Style):
+    pass
