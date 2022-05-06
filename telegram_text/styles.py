@@ -26,7 +26,7 @@ class PlainText(AbstractElement):
         return f"<{self.__class__.__name__}: {self.text}>"
 
 
-class _Style(AbstractElement, ABC):
+class Style(AbstractElement, ABC):
     MARKDOWN_SYMBOL: str = NotImplemented
     HTML_TAG: str = NotImplemented
 
@@ -52,16 +52,20 @@ class _Style(AbstractElement, ABC):
         return f"<{self.__class__.__name__}: {text}>"
 
 
-class Bold(_Style):
+class Bold(Style):
     MARKDOWN_SYMBOL = '*'
     HTML_TAG = 'b'
 
 
-class Italic(_Style):
+class Italic(Style):
     MARKDOWN_SYMBOL = '_'
     HTML_TAG = 'i'
 
 
-class Underline(_Style):
+class Underline(Style):
     MARKDOWN_SYMBOL = '__'
     HTML_TAG = 'u'
+
+
+class Strikethrough(Style):
+    pass
