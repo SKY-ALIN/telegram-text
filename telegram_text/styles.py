@@ -26,7 +26,10 @@ class PlainText(AbstractElement):
         return f"<{self.__class__.__name__}: {self.text}>"
 
 
-class Style(AbstractElement, ABC):
+class _Style(AbstractElement, ABC):
+    MARKDOWN_SYMBOL: str = NotImplemented
+    HTML_TAG: str = NotImplemented
+
     def __init__(self, text: Union[str, AbstractElement]):
         if isinstance(text, str):
             text = PlainText(text)
@@ -34,6 +37,12 @@ class Style(AbstractElement, ABC):
 
     def to_plain_text(self) -> str:
         return self.text.to_plain_text()
+
+    def to_markdown(self) -> str:
+        return f"{self.MARKDOWN_SYMBOL}{self.text.to_markdown()}{self.MARKDOWN_SYMBOL}"
+
+    def to_html(self) -> str:
+        return f"<{self.HTML_TAG}>{self.text.to_html()}</{self.HTML_TAG}>"
 
     def __str__(self) -> str:
         return self.to_markdown()
@@ -43,21 +52,16 @@ class Style(AbstractElement, ABC):
         return f"<{self.__class__.__name__}: {text}>"
 
 
-class Bold(Style):
-    def to_markdown(self) -> str:
-        return f"*{self.text.to_markdown()}*"
-
-    def to_html(self) -> str:
-        return f"<b>{self.text.to_html()}</b>"
+class Bold(_Style):
+    MARKDOWN_SYMBOL = '*'
+    HTML_TAG = 'b'
 
 
-class Italic(Style):
-    def to_markdown(self) -> str:
-        return f"_{self.text.to_markdown()}_"
-
-    def to_html(self) -> str:
-        return f"<i>{self.text.to_html()}</i>"
+class Italic(_Style):
+    MARKDOWN_SYMBOL = '_'
+    HTML_TAG = 'i'
 
 
-class Underline(Style):
-    pass
+class Underline(_Style):
+    MARKDOWN_SYMBOL = '__'
+    HTML_TAG = 'u'
