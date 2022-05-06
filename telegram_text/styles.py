@@ -52,4 +52,8 @@ class Bold(Style):
 
 
 class Italic(Style):
-    pass
+    def to_markdown(self) -> str:
+        return f"_{self.text.to_markdown()}_"
+
+    def to_html(self) -> str:
+        return f"<i>{self.text.to_html()}</i>"
