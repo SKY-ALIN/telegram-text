@@ -5,7 +5,7 @@ description = ""
 authors = ["Vladimir Alinsky <Vladimir@Alinsky.tech>"]
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/SKY-ALIN/telegram_text"
+repository = "https://github.com/SKY-ALIN/telegram-text"
 include = [
     "LICENSE",
 ]
@@ -23,6 +23,7 @@ python = "^3.7"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
+flake8 = "^4.0.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
