@@ -52,11 +52,11 @@ class Text(Element):
 
 
 class PlainText(Text):
-    escape_chars = ('_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!')
+    escaping_chars = ('_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!')
 
     def _escape(self, text: str) -> str:
         escaping_prefix = '\\'
-        mapping = str.maketrans({char: escaping_prefix + char for char in self.escape_chars})
+        mapping = str.maketrans({char: escaping_prefix + char for char in self.escaping_chars})
         return "".join(char.translate(mapping) for char in text)
 
     def to_markdown(self) -> str:
