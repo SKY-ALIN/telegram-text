@@ -1,5 +1,5 @@
 from telegram_text.elements import Chain
-from telegram_text.styles import Bold, Italic, InlineCode
+from telegram_text.styles import Bold, Italic, InlineCode, Spoiler
 
 
 def test_chain_structure():
@@ -41,3 +41,15 @@ def test_add_magic_method():
     assert bold in chain
     assert italic in chain
     assert code in chain
+
+
+def test_nested_styles_combination():
+    combination = Bold("Bold") + "and" + Italic("italic")
+
+    assert combination.to_plain_text() == "Bold and italic"
+    assert combination.to_markdown() == "*Bold* and _italic_"
+
+    obj = Spoiler(combination)
+
+    assert obj.to_plain_text() == "Bold and italic"
+    assert obj.to_markdown() == "||*Bold* and _italic_||"
