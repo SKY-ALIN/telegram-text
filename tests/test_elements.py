@@ -1,4 +1,4 @@
-from telegram_text.elements import Hashtag, Link, InlineUser
+from telegram_text.elements import Hashtag, Link, InlineUser, User
 from telegram_text.bases import PlainText
 from telegram_text.styles import Bold, Italic
 
@@ -35,3 +35,28 @@ def test_hashtag_main_styling():
     assert Italic(Hashtag("hashtag")).to_markdown() == "_#hashtag_"
     assert Bold(Italic(Hashtag("hashtag"))).to_markdown() == "*_#hashtag_*"
     assert Bold(Italic(Hashtag("hashtag"))).to_plain_text() == "#hashtag"
+
+
+def test_user_creation():
+    assert User("user").to_plain_text() == "@user"
+    assert User("@user").to_plain_text() == "@user"
+    assert User("user").to_markdown() == "@user"
+    assert User("@user").to_markdown() == "@user"
+    assert User("user").to_html() == "@user"
+    assert User("@user").to_html() == "@user"
+
+
+def test_user_style_fabric():
+    assert User("user", style=PlainText).to_markdown() == "@user"
+    assert User("user", style=Bold).to_markdown() == "*@user*"
+    assert User("user", style=Italic).to_markdown() == "_@user_"
+    assert User("user", style=lambda string: Bold(Italic(string))).to_markdown() == "*_@user_*"
+    assert User("user", style=lambda string: Bold(Italic(string))).to_plain_text() == "@user"
+
+
+def test_user_main_styling():
+    assert Bold(User("user")).to_markdown() == "*@user*"
+    assert Italic(User("user")).to_markdown() == "_@user_"
+    assert Bold(Italic(User("user"))).to_markdown() == "*_@user_*"
+    assert Bold(Italic(User("user"))).to_plain_text() == "@user"
+

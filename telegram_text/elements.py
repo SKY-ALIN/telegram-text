@@ -25,9 +25,9 @@ class InlineUser(Link):
         super().__init__(text=text, url=url, style=style)
 
 
-class Hashtag(Element):
+class _Reference(Element):
     def __init__(self, text: str, style: Callable[[str], Element] = PlainText):
-        self.text = style('#' + text.lstrip('#'))
+        self.text = style(text)
 
     def to_plain_text(self) -> str:
         return self.text.to_plain_text()
@@ -37,3 +37,15 @@ class Hashtag(Element):
 
     def to_html(self) -> str:
         return self.text.to_html()
+
+
+class Hashtag(_Reference):
+    def __init__(self, text: str, style: Callable[[str], Element] = PlainText):
+        text = '#' + text.lstrip('#')
+        super().__init__(text, style=style)
+
+
+class User(_Reference):
+    def __init__(self, text: str, style: Callable[[str], Element] = PlainText):
+        text = '@' + text.lstrip('@')
+        super().__init__(text, style=style)
