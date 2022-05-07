@@ -80,3 +80,11 @@ class Spoiler(Style):
     markdown_symbol = '||'
     html_tag = 'span'
     html_class = 'tg-spoiler'
+
+
+class InlineCode(Style):
+    pass
+
+
+class Code(Style):
+    pass
