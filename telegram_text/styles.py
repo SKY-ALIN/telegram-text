@@ -1,42 +1,20 @@
 from abc import ABC
-from typing import Union
+from typing import Union, Optional
 
-from .elements import AbstractElement
-
-
-class PlainText(AbstractElement):
-    def __init__(self, text: Union[str, AbstractElement]):
-        if isinstance(text, AbstractElement):
-            text = text.to_plain_text()
-        self.text: str = text
-
-    def to_plain_text(self) -> str:
-        return self.text
-
-    def to_markdown(self) -> str:
-        return self.text
-
-    def to_html(self) -> str:
-        return self.text
-
-    def __str__(self) -> str:
-        return self.text
-
-    def __repr__(self) -> str:
-        return f"<{self.__class__.__name__}: {self.text}>"
+from .elements import Element, PlainText
 
 
-class Style(AbstractElement, ABC):
+class Style(Element, ABC):
     markdown_symbol: str = NotImplemented
     html_tag: str = NotImplemented
     html_class: str = None
 
-    def __init__(self, text: Union[str, AbstractElement]):
+    def __init__(self, text: Union[str, Element]):
         if isinstance(text, str):
             text = PlainText(text)
         if self.__class__ is text.__class__:
             text = text.text
-        self.text: AbstractElement = text
+        self.text: Element = text
 
     def to_plain_text(self) -> str:
         return self.text.to_plain_text()
@@ -92,8 +70,8 @@ class Code(Style):
 
     def __init__(self, text: str, language: str = None):
         super().__init__(text)
-        self.language = language or ''
-        self.html_class = f'language-{language}' if language else None
+        self.language: str = language or ''
+        self.html_class: Optional[str] = f'language-{language}' if language else None
 
     def to_markdown(self) -> str:
         return f"{self.markdown_symbol}{self.language}\n{self.text.to_markdown()}\n{self.markdown_symbol}"
