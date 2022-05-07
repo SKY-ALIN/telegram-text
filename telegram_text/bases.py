@@ -32,7 +32,7 @@ class Element(AbstractElement, ABC):
         return self.to_markdown()
 
 
-class PlainText(Element):
+class Text(Element):
     def __init__(self, text: Union[str, Element]):
         if isinstance(text, Element):
             text = text.to_plain_text()
@@ -49,6 +49,18 @@ class PlainText(Element):
 
     def __repr__(self) -> str:
         return f"<{self.__class__.__name__}: {self.text}>"
+
+
+class PlainText(Text):
+    escape_chars = ('_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!')
+
+    def _escape(self, text: str) -> str:
+        escaping_prefix = '\\'
+        mapping = str.maketrans({char: escaping_prefix + char for char in self.escape_chars})
+        return "".join(char.translate(mapping) for char in text)
+
+    def to_markdown(self) -> str:
+        return self._escape(self.text)
 
 
 class Chain(Element):

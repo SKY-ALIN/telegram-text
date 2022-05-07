@@ -1,10 +1,10 @@
 from typing import Callable
 
-from .bases import Element, PlainText
+from .bases import Element, Text, PlainText
 
 
 class Link(Element):
-    def __init__(self, text: str, url: str, style: Callable[[str], Element] = PlainText):
+    def __init__(self, text: str, url: str, style: Callable[[str], Element] = Text):
         self.text = text
         self.url = url
         self.style = style
@@ -20,7 +20,7 @@ class Link(Element):
 
 
 class InlineUser(Link):
-    def __init__(self, text: str, user_id: int, style: Callable[[str], Element] = PlainText):
+    def __init__(self, text: str, user_id: int, style: Callable[[str], Element] = Text):
         url = f"tg://user?id={user_id}"
         super().__init__(text=text, url=url, style=style)
 

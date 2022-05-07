@@ -9,7 +9,7 @@ from telegram_text.styles import (
     Spoiler,
 )
 
-testing_string = "Hello world!"
+testing_string = "Hello world"
 
 
 def test_plain_text():
