@@ -1,8 +1,8 @@
+from telegram_text.bases import PlainText
 from telegram_text.styles import (
     Bold,
     Code,
     InlineCode,
-    PlainText,
     Italic,
     Underline,
     Strikethrough,

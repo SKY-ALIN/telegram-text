@@ -1,7 +1,7 @@
 from abc import ABC
 from typing import Union, Optional
 
-from .elements import Element, PlainText
+from .bases import Element, PlainText
 
 
 class Style(Element, ABC):

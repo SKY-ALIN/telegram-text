@@ -1,4 +1,4 @@
-from telegram_text.elements import Chain
+from telegram_text.bases import Chain
 from telegram_text.styles import Bold, Italic, InlineCode, Spoiler
 
 
