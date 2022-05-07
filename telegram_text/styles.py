@@ -64,6 +64,7 @@ class InlineCode(Style):
 
 class Code(Style):
     markdown_symbol = '```'
+    html_tag = 'code'
 
     def __init__(self, text: str, language: str = None):
         super().__init__(text)
@@ -74,8 +75,7 @@ class Code(Style):
         return f"{self.markdown_symbol}{self.language}\n{self.text.to_markdown()}\n{self.markdown_symbol}"
 
     def to_html(self) -> str:
-        class_str = f' class="{self.html_class}"' if self.html_class else ''
         # if lang isn't specified, we don't use <code> tag according to Telegram docs
-        if class_str:
-            return f'<pre><code{class_str}>{self.text.to_html()}</code></pre>'
+        if self.html_class:
+            return f'<pre>{super().to_html()}</pre>'
         return f'<pre>{self.text.to_html()}</pre>'

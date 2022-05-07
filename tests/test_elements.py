@@ -1,6 +1,11 @@
-from telegram_text.elements import Hashtag
+from telegram_text.elements import Hashtag, Link
 from telegram_text.bases import PlainText
 from telegram_text.styles import Bold, Italic
+
+
+def test_link():
+    assert Link("link text", "https://Alinsky.tech/").to_markdown() == "[link text](https://Alinsky.tech/)"
+    assert Link("link text", "https://Alinsky.tech/").to_html() == '<a href="https://Alinsky.tech/">link text</a>'
 
 
 def test_hashtag_creation():
@@ -13,11 +18,11 @@ def test_hashtag_creation():
 
 
 def test_hashtag_style_fabric():
-    assert Hashtag("hashtag", style_fabric=PlainText).to_markdown() == "#hashtag"
-    assert Hashtag("hashtag", style_fabric=Bold).to_markdown() == "*#hashtag*"
-    assert Hashtag("hashtag", style_fabric=Italic).to_markdown() == "_#hashtag_"
-    assert Hashtag("hashtag", style_fabric=lambda string: Bold(Italic(string))).to_markdown() == "*_#hashtag_*"
-    assert Hashtag("hashtag", style_fabric=lambda string: Bold(Italic(string))).to_plain_text() == "#hashtag"
+    assert Hashtag("hashtag", style=PlainText).to_markdown() == "#hashtag"
+    assert Hashtag("hashtag", style=Bold).to_markdown() == "*#hashtag*"
+    assert Hashtag("hashtag", style=Italic).to_markdown() == "_#hashtag_"
+    assert Hashtag("hashtag", style=lambda string: Bold(Italic(string))).to_markdown() == "*_#hashtag_*"
+    assert Hashtag("hashtag", style=lambda string: Bold(Italic(string))).to_plain_text() == "#hashtag"
 
 
 def test_hashtag_main_styling():
