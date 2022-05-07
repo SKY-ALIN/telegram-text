@@ -83,8 +83,24 @@ class Spoiler(Style):
 
 
 class InlineCode(Style):
-    pass
+    markdown_symbol = '`'
+    html_tag = 'code'
 
 
 class Code(Style):
-    pass
+    markdown_symbol = '```'
+
+    def __init__(self, text: str, language: str = None):
+        super().__init__(text)
+        self.language = language or ''
+        self.html_class = f'language-{language}' if language else None
+
+    def to_markdown(self) -> str:
+        return f"{self.markdown_symbol}{self.language}\n{self.text.to_markdown()}\n{self.markdown_symbol}"
+
+    def to_html(self) -> str:
+        class_str = f' class="{self.html_class}"' if self.html_class else ''
+        # if lang isn't specified, we don't use <code> tag according to Telegram docs
+        if class_str:
+            return f'<pre><code{class_str}>{self.text.to_html()}</code></pre>'
+        return f'<pre>{self.text.to_html()}</pre>'
