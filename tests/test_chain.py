@@ -7,6 +7,7 @@ def test_chain_structure():
     italic = Italic("italic text")
     code = InlineCode("Some code...")
     chain = Chain(bold, italic, code)
+
     assert isinstance(chain, Chain)
     assert bold in chain
     assert italic in chain
@@ -27,3 +28,16 @@ def test_chain_structure():
         italic.to_html() + ' ' +
         code.to_html()
     )
+
+
+def test_add_magic_method():
+    bold = Bold("bold text")
+    italic = Italic("italic text")
+    code = InlineCode("Some code...")
+    chain = bold + italic
+    chain += code
+
+    assert Chain(bold, italic, code) == chain
+    assert bold in chain
+    assert italic in chain
+    assert code in chain
