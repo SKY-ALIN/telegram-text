@@ -1,4 +1,4 @@
-from telegram_text.elements import Hashtag, Link
+from telegram_text.elements import Hashtag, Link, InlineUser
 from telegram_text.bases import PlainText
 from telegram_text.styles import Bold, Italic
 
@@ -6,6 +6,11 @@ from telegram_text.styles import Bold, Italic
 def test_link():
     assert Link("link text", "https://Alinsky.tech/").to_markdown() == "[link text](https://Alinsky.tech/)"
     assert Link("link text", "https://Alinsky.tech/").to_html() == '<a href="https://Alinsky.tech/">link text</a>'
+
+
+def test_inline_user():
+    assert InlineUser("some user", 1).to_markdown() == "[some user](tg://user?id=1)"
+    assert InlineUser("some user", 1).to_html() == '<a href="tg://user?id=1">some user</a>'
 
 
 def test_hashtag_creation():

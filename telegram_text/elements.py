@@ -19,6 +19,12 @@ class Link(Element):
         return self.style(f'<a href="{self.url}">{self.text}</a>').to_html()
 
 
+class InlineUser(Link):
+    def __init__(self, text: str, user_id: int, style: Callable[[str], Element] = PlainText):
+        url = f"tg://user?id={user_id}"
+        super().__init__(text=text, url=url, style=style)
+
+
 class Hashtag(Element):
     def __init__(self, text: str, style: Callable[[str], Element] = PlainText):
         self.text = style('#' + text.lstrip('#'))
