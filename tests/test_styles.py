@@ -4,6 +4,7 @@ from telegram_text.styles import (
     Italic,
     Underline,
     Strikethrough,
+    Spoiler,
 )
 
 testing_string = "Hello world!"
@@ -55,3 +56,12 @@ def test_strikethrough():
     assert str(obj) == '~' + testing_string + '~'
     assert obj.to_markdown() == '~' + testing_string + '~'
     assert obj.to_html() == '<s>' + testing_string + '</s>'
+
+
+def test_spoiler():
+    obj = Spoiler(testing_string)
+    assert obj.text.to_plain_text() == testing_string
+    assert obj.to_plain_text() == testing_string
+    assert str(obj) == '||' + testing_string + '||'
+    assert obj.to_markdown() == '||' + testing_string + '||'
+    assert obj.to_html() == '<span class="tg-spoiler">' + testing_string + '</span>'

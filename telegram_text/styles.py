@@ -72,3 +72,7 @@ class Underline(Style):
 class Strikethrough(Style):
     MARKDOWN_SYMBOL = '~'
     HTML_TAG = 's'
+
+
+class Spoiler(Style):
+    pass
