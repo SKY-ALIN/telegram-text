@@ -18,3 +18,11 @@ def test_style_fabric():
     assert Hashtag("hashtag", style_fabric=Italic).to_markdown() == "_#hashtag_"
     assert Hashtag("hashtag", style_fabric=lambda string: Bold(Italic(string))).to_markdown() == "*_#hashtag_*"
     assert Hashtag("hashtag", style_fabric=lambda string: Bold(Italic(string))).to_plain_text() == "#hashtag"
+
+
+def test_main_styling():
+    assert Bold(Hashtag("hashtag")).to_markdown() == "*#hashtag*"
+    assert Italic(Hashtag("hashtag")).to_markdown() == "_#hashtag_"
+    assert Bold(Italic(Hashtag("hashtag"))).to_markdown() == "*_#hashtag_*"
+    assert Bold(Italic(Hashtag("hashtag"))).to_plain_text() == "#hashtag"
+
