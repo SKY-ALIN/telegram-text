@@ -26,9 +26,6 @@ class Style(Element, ABC):
         class_str = f' class="{self.html_class}"' if self.html_class else ''
         return f'<{self.html_tag}{class_str}>{self.text.to_html()}</{self.html_tag}>'
 
-    def __str__(self) -> str:
-        return self.to_markdown()
-
     def __repr__(self) -> str:
         text = str(self.text) if isinstance(self.text, PlainText) else repr(self.text)
         return f"<{self.__class__.__name__}: {text}>"

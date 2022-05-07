@@ -28,6 +28,9 @@ class Element(AbstractElement, ABC):
     def __eq__(self, other: "Element"):
         return type(self) is type(other) and self.to_plain_text() == other.to_plain_text()
 
+    def __str__(self) -> str:
+        return self.to_markdown()
+
 
 class PlainText(Element):
     def __init__(self, text: Union[str, Element]):
@@ -42,9 +45,6 @@ class PlainText(Element):
         return self.text
 
     def to_html(self) -> str:
-        return self.text
-
-    def __str__(self) -> str:
         return self.text
 
     def __repr__(self) -> str:
