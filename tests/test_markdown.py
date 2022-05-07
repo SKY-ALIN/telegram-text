@@ -1,5 +1,5 @@
 from telegram_text.styles import PlainText, Bold, Underline
-from telegram_text.markdown import OrderedList
+from telegram_text.markdown import OrderedList, UnorderedList
 
 
 def test_ordered_list():
@@ -22,4 +22,26 @@ def test_ordered_list():
         "*1\\.* __First line__\n\n"
         "*2\\.* __Second line__\n\n"
         "*3\\.* __Third line__"
+    )
+
+
+def test_unordered_list():
+    assert UnorderedList(
+        PlainText("First line"),
+        PlainText("Second line"),
+        PlainText("Third line"),
+    ).to_plain_text() == (
+        "* First line\n"
+        "* Second line\n"
+        "* Third line"
+    )
+    assert UnorderedList(
+        Underline("First line"),
+        Underline("Second line"),
+        Underline("Third line"),
+        sep='\n\n'
+    ).to_markdown() == (
+        "*\\** __First line__\n\n"
+        "*\\** __Second line__\n\n"
+        "*\\** __Third line__"
     )

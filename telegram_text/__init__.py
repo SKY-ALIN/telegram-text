@@ -1,7 +1,7 @@
 from .bases import Chain, PlainText, Text
 from .styles import Bold, Code, InlineCode, Italic, Spoiler, Strikethrough, Underline
 from .elements import Hashtag, InlineUser, Link, User
-from .markdown import OrderedList
+from .markdown import OrderedList, UnorderedList
 
 __version__ = '0.1.0'
 __all__ = [
@@ -23,4 +23,5 @@ __all__ = [
     "User",
 
     "OrderedList",
+    "UnorderedList",
 ]
