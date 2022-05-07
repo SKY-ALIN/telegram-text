@@ -59,4 +59,3 @@ def test_user_main_styling():
     assert Italic(User("user")).to_markdown() == "_@user_"
     assert Bold(Italic(User("user"))).to_markdown() == "*_@user_*"
     assert Bold(Italic(User("user"))).to_plain_text() == "@user"
-
