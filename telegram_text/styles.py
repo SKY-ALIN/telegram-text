@@ -27,8 +27,9 @@ class PlainText(AbstractElement):
 
 
 class Style(AbstractElement, ABC):
-    MARKDOWN_SYMBOL: str = NotImplemented
-    HTML_TAG: str = NotImplemented
+    markdown_symbol: str = NotImplemented
+    html_tag: str = NotImplemented
+    html_class: str = None
 
     def __init__(self, text: Union[str, AbstractElement]):
         if isinstance(text, str):
@@ -41,10 +42,11 @@ class Style(AbstractElement, ABC):
         return self.text.to_plain_text()
 
     def to_markdown(self) -> str:
-        return f"{self.MARKDOWN_SYMBOL}{self.text.to_markdown()}{self.MARKDOWN_SYMBOL}"
+        return f"{self.markdown_symbol}{self.text.to_markdown()}{self.markdown_symbol}"
 
     def to_html(self) -> str:
-        return f"<{self.HTML_TAG}>{self.text.to_html()}</{self.HTML_TAG}>"
+        class_str = f' class="{self.html_class}"' if self.html_class else ''
+        return f'<{self.html_tag}{class_str}>{self.text.to_html()}</{self.html_tag}>'
 
     def __str__(self) -> str:
         return self.to_markdown()
@@ -55,24 +57,26 @@ class Style(AbstractElement, ABC):
 
 
 class Bold(Style):
-    MARKDOWN_SYMBOL = '*'
-    HTML_TAG = 'b'
+    markdown_symbol = '*'
+    html_tag = 'b'
 
 
 class Italic(Style):
-    MARKDOWN_SYMBOL = '_'
-    HTML_TAG = 'i'
+    markdown_symbol = '_'
+    html_tag = 'i'
 
 
 class Underline(Style):
-    MARKDOWN_SYMBOL = '__'
-    HTML_TAG = 'u'
+    markdown_symbol = '__'
+    html_tag = 'u'
 
 
 class Strikethrough(Style):
-    MARKDOWN_SYMBOL = '~'
-    HTML_TAG = 's'
+    markdown_symbol = '~'
+    html_tag = 's'
 
 
 class Spoiler(Style):
-    pass
+    markdown_symbol = '||'
+    html_tag = 'span'
+    html_class = 'tg-spoiler'
