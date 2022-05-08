@@ -23,7 +23,12 @@ from telegram_text import Bold, Italic, Underline
 text = Underline(Bold("Bold") + "and" + Italic("italic") + "with underline.")
 ```
 
-![Basic Example Result](https://raw.githubusercontent.com/SKY-ALIN/telegram-text/0.1.0-docs/docs/source/_static/basic_example_result.jpg)
+<p align="center">
+  <img 
+    width="400"
+    src="https://raw.githubusercontent.com/SKY-ALIN/telegram-text/0.1.0-docs/docs/source/_static/basic_example_result.jpg"
+  />
+</p>
 
 ### Advanced Example
 
