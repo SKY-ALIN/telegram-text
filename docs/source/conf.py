@@ -55,7 +55,7 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = 'furo'
-html_title = f'telegram-text {release}'
+html_title = 'telegram-text'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
