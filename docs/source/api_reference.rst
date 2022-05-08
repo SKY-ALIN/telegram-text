@@ -1,6 +1,57 @@
 API Reference
 =============
 
+telegram\_text.styles
+---------------------
+
+Style
+^^^^^
+.. autoclass:: telegram_text.styles.Style
+   :members:
+   :show-inheritance:
+
+Bold
+^^^^
+.. autoclass:: telegram_text.styles.Bold
+   :members:
+   :show-inheritance:
+
+Italic
+^^^^^^
+.. autoclass:: telegram_text.styles.Italic
+   :members:
+   :show-inheritance:
+
+Underline
+^^^^^^^^^
+.. autoclass:: telegram_text.styles.Underline
+   :members:
+   :show-inheritance:
+
+Strikethrough
+^^^^^^^^^^^^^
+.. autoclass:: telegram_text.styles.Strikethrough
+   :members:
+   :show-inheritance:
+
+Spoiler
+^^^^^^^
+.. autoclass:: telegram_text.styles.Spoiler
+   :members:
+   :show-inheritance:
+
+InlineCode
+^^^^^^^^^^
+.. autoclass:: telegram_text.styles.InlineCode
+   :members:
+   :show-inheritance:
+
+Code
+^^^^
+.. autoclass:: telegram_text.styles.Code
+   :members:
+   :show-inheritance:
+
 telegram\_text.bases module
 ---------------------------
 
@@ -29,14 +80,6 @@ telegram\_text.markdown module
 ------------------------------
 
 .. automodule:: telegram_text.markdown
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-telegram\_text.styles module
-----------------------------
-
-.. automodule:: telegram_text.styles
    :members:
    :undoc-members:
    :show-inheritance:

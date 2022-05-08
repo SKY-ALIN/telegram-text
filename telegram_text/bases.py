@@ -6,16 +6,25 @@ SPACE = ' '
 
 
 class AbstractElement(ABC):
+    """The interface every component implements."""
+
     @abstractmethod
     def to_plain_text(self) -> str:
+        """Format the element to plain text without escaping, tags or special
+        characters.
+        """
         raise NotImplementedError
 
     @abstractmethod
     def to_markdown(self) -> str:
+        """Format the element to Markdown/MarkdownV2 format according to
+        Telegram specification with escaping if necessary.
+        """
         raise NotImplementedError
 
     @abstractmethod
     def to_html(self) -> str:
+        """Format the element to html according to Telegram specification."""
         raise NotImplementedError
 
 
