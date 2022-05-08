@@ -23,6 +23,8 @@ from telegram_text import Bold, Italic, Underline
 text = Underline(Bold("Bold") + "and" + Italic("italic") + "with underline.")
 ```
 
+![Basic Example Result](https://raw.githubusercontent.com/SKY-ALIN/telegram-text/0.1.0-docs/docs/source/_static/basic_example_result.jpg)
+
 ### Advanced Example
 
 ```python
@@ -47,9 +49,9 @@ menu = Chain(
     ),
     sep='\n\n'
 )
-
-
 ```
+
+![Advanced Example Result](https://raw.githubusercontent.com/SKY-ALIN/telegram-text/0.1.0-docs/docs/source/_static/advanced_example_result.jpg)
 
 ---
 
