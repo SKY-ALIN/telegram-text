@@ -5,7 +5,7 @@ from .bases import Element, Text, PlainText
 
 class Link(Element):
     def __init__(self, text: str, url: str, style: Callable[[str], Element] = Text):
-        self.text = text
+        self.text = PlainText(text)
         self.url = url
         self.style = style
 

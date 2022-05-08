@@ -6,7 +6,7 @@ markup fast and render it to specific _html_ or _MarkdownV2_ formats.**
 [![versions](https://img.shields.io/pypi/pyversions/telegram-text.svg)](https://github.com/SKY-ALIN/telegram-text)
 ![example workflow](https://github.com/SKY-ALIN/telegram-text/actions/workflows/tests.yml/badge.svg)
 ![example workflow](https://github.com/SKY-ALIN/telegram-text/actions/workflows/code-quality.yml/badge.svg)
-[![codecov](https://codecov.io/SKY-ALIN/SKY-ALIN/telegram-text/branch/0.1.0-docs/graph/badge.svg?token=BK0ASC89B9)](https://codecov.io/SKY-ALIN/SKY-ALIN/telegram-text)
+[![codecov](https://codecov.io/gh/SKY-ALIN/telegram-text/branch/0.1.0-docs/graph/badge.svg?token=BK0ASC89B9)](https://codecov.io/SKY-ALIN/SKY-ALIN/telegram-text)
 [![PyPI version fury.io](https://badge.fury.io/py/telegram-text.svg)](https://pypi.org/project/telegram-text/)
 [![license](https://img.shields.io/github/license/SKY-ALIN/telegram-text.svg)](https://github.com/SKY-ALIN/telegram-text/blob/main/LICENSE)
 
