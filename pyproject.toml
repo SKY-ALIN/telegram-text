@@ -1,16 +1,18 @@
 [tool.poetry]
 name = "telegram_text"
-version = "0.0.0"
-description = ""
+version = "0.1.0"
+description = "Python markup module for Telegram messenger. This module provides a rich list of components to build any possible markup fast and render it to specific html or MarkdownV2 formats."
 authors = ["Vladimir Alinsky <Vladimir@Alinsky.tech>"]
 license = "MIT"
 readme = "README.md"
+homepage = "https://telegram-text.alinsky.tech"
 repository = "https://github.com/SKY-ALIN/telegram-text"
+keywords = ["telegram", "markup", "markdown", "formating"]
 include = [
     "LICENSE",
 ]
 classifiers = [
-    "Development Status :: 1 - Planning",
+    "Development Status :: 5 - Production/Stable",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
