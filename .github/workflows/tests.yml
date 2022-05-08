@@ -41,4 +41,7 @@ jobs:
       run: poetry install --no-interaction
 
     - name: Test with pytest
-      run: poetry run pytest
+      run: poetry run pytest --cov=telegram_text --cov-report=xml tests/
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v2
