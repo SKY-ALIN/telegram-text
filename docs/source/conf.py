@@ -89,4 +89,8 @@ html_theme_options = {
         "color-api-pre-name": "#ffa726",
         "color-highlight-on-target": "#083563",
     },
+    "light_css_variables": {
+        "color-api-name": "#ff9100",
+        "color-api-pre-name": "#ff9100",
+    }
 }

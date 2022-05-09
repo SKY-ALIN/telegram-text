@@ -12,6 +12,7 @@ class Style(Element, ABC):
         text (Union[str, telegram_text.bases.Element]):
             Text or Element to which the style will be applied.
     """
+
     markdown_symbol: str = NotImplemented
     html_tag: str = NotImplemented
     html_class: str = None
@@ -41,32 +42,37 @@ class Style(Element, ABC):
 
 class Bold(Style):
     """Bold text. Example: **bold text**."""
+
     markdown_symbol = '*'
     html_tag = 'b'
 
 
 class Italic(Style):
     """Italic text. Example: *italic text*."""
+
     markdown_symbol = '_'
     html_tag = 'i'
 
 
 class Underline(Style):
     """Underline text. Example: :underline:`underline text`."""
+
     markdown_symbol = '__'
     html_tag = 'u'
 
 
 class Strikethrough(Style):
     """Strikethrough text. Example: :strike:`strikethrough text`."""
+
     markdown_symbol = '~'
     html_tag = 's'
 
 
 class Spoiler(Style):
-    """Spoiler text. We can't provide an example because it's very specific
+    """Spoiler text. We can't provide an example because it's a very specific
     for Telegram messenger formatting.
     """
+
     markdown_symbol = '||'
     html_tag = 'span'
     html_class = 'tg-spoiler'
@@ -74,6 +80,7 @@ class Spoiler(Style):
 
 class InlineCode(Style):
     """Inline code text. Example: :code:`inline code`."""
+
     markdown_symbol = '`'
     html_tag = 'code'
     base_style_fabric = Text
@@ -91,6 +98,7 @@ class Code(Style):
         language (Optional[str]):
             Leave it empty if you don't want to specify a language.
     """
+
     markdown_symbol = '```'
     html_tag = 'code'
     base_style_fabric = Text

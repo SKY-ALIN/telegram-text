@@ -1,7 +1,7 @@
 # telegram-text
 **Python markup module for Telegram messenger.
 This module provides a rich list of components to build any possible
-markup fast and render it to specific _html_ or _MarkdownV2_ formats.**
+markup fast and render it to specific _html_ and _MarkdownV2_ formats.**
 
 [![versions](https://img.shields.io/pypi/pyversions/telegram-text.svg)](https://github.com/SKY-ALIN/telegram-text)
 ![Tests](https://github.com/SKY-ALIN/telegram-text/actions/workflows/tests.yml/badge.svg)

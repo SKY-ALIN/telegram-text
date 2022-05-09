@@ -1,6 +1,45 @@
 API Reference
 =============
 
+telegram\_text.bases
+--------------------
+.. automodule:: telegram_text.bases
+   :exclude-members: AbstractElement, Element, Text, PlainText, Chain
+
+AbstractElement
+^^^^^^^^^^^^^^^
+.. autoclass:: telegram_text.bases.AbstractElement
+   :members:
+   :show-inheritance:
+   :special-members: __add__
+
+Element
+^^^^^^^
+.. autoclass:: telegram_text.bases.Element
+   :members:
+   :show-inheritance:
+   :special-members: __add__, __eq__, __str__
+
+Text
+^^^^
+.. autoclass:: telegram_text.bases.Text
+   :members:
+   :show-inheritance:
+
+PlainText
+^^^^^^^^^
+.. autoclass:: telegram_text.bases.PlainText
+   :members:
+   :show-inheritance:
+
+Chain
+^^^^^
+.. autoclass:: telegram_text.bases.Chain
+   :members:
+   :show-inheritance:
+   :special-members: __contains__
+
+
 telegram\_text.styles
 ---------------------
 
@@ -50,14 +89,6 @@ Code
 ^^^^
 .. autoclass:: telegram_text.styles.Code
    :members:
-   :show-inheritance:
-
-telegram\_text.bases module
----------------------------
-
-.. automodule:: telegram_text.bases
-   :members:
-   :undoc-members:
    :show-inheritance:
 
 telegram\_text.custom module
