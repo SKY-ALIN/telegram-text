@@ -82,8 +82,8 @@ def test_code_block():
     obj = Code(testing_string)
     assert obj.text.to_plain_text() == testing_string
     assert obj.to_plain_text() == testing_string
-    assert str(obj) == '```\n' + testing_string + '\n```'
-    assert obj.to_markdown() == '```\n' + testing_string + '\n```'
+    assert str(obj) == '```\n' + testing_string + '```'
+    assert obj.to_markdown() == '```\n' + testing_string + '```'
     assert obj.to_html() == '<pre>' + testing_string + '</pre>'
 
 
@@ -92,6 +92,6 @@ def test_code_block_with_language():
     obj = Code(testing_string, language=language)
     assert obj.text.to_plain_text() == testing_string
     assert obj.to_plain_text() == testing_string
-    assert str(obj) == f'```{language}\n' + testing_string + '\n```'
-    assert obj.to_markdown() == f'```{language}\n' + testing_string + '\n```'
+    assert str(obj) == f'```{language}\n' + testing_string + '```'
+    assert obj.to_markdown() == f'```{language}\n' + testing_string + '```'
     assert obj.to_html() == f'<pre><code class="language-{language}">' + testing_string + '</code></pre>'

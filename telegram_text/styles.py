@@ -109,7 +109,7 @@ class Code(Style):
         self.html_class: Optional[str] = f'language-{language}' if language else None
 
     def to_markdown(self) -> str:
-        return f"{self.markdown_symbol}{self.language}\n{self.text.to_markdown()}\n{self.markdown_symbol}"
+        return f"{self.markdown_symbol}{self.language}\n{self.text.to_markdown()}{self.markdown_symbol}"
 
     def to_html(self) -> str:
         # if lang isn't specified, we don't use <code> tag according to Telegram docs
