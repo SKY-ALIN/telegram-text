@@ -1,6 +1,26 @@
 API Reference
 =============
 
+You can import as :code:`from telegram_text import ...` following elements:
+
+* :class:`telegram_text.bases.Chain`
+* :class:`telegram_text.bases.PlainText`
+* :class:`telegram_text.styles.Bold`
+* :class:`telegram_text.styles.Code`
+* :class:`telegram_text.styles.InlineCode`
+* :class:`telegram_text.styles.Italic`
+* :class:`telegram_text.styles.Spoiler`
+* :class:`telegram_text.styles.Strikethrough`
+* :class:`telegram_text.styles.Underline`
+* :class:`telegram_text.elements.Hashtag`
+* :class:`telegram_text.elements.InlineUser`
+* :class:`telegram_text.elements.Link`
+* :class:`telegram_text.elements.User`
+* :class:`telegram_text.markdown.OrderedList`
+* :class:`telegram_text.markdown.UnorderedList`
+* :class:`telegram_text.custom.TOMLSection`
+
+
 telegram\_text.bases
 --------------------
 .. automodule:: telegram_text.bases
@@ -136,16 +156,20 @@ UnorderedList
    :show-inheritance:
 
 OrderedList
-^^^^^^^^^^^^^
+^^^^^^^^^^^
 .. autoclass:: telegram_text.markdown.OrderedList
    :members:
    :show-inheritance:
 
 
-telegram\_text.custom module
-----------------------------
+telegram\_text.custom
+---------------------
 
 .. automodule:: telegram_text.custom
+   :exclude-members: TOMLSection
+
+TOMLSection
+^^^^^^^^^^^
+.. autoclass:: telegram_text.custom.TOMLSection
    :members:
-   :undoc-members:
    :show-inheritance:
