@@ -5,6 +5,14 @@ from .bases import Element, PlainText, Text
 
 
 class Style(Element, ABC):
+    """Class that inherits each style. it isolates a part of logic how to
+    render styles.
+
+    Args:
+        text (Union[str, telegram_text.bases.Element]):
+            Text or Element to which the style will be applied.
+    """
+
     markdown_symbol: str = NotImplemented
     html_tag: str = NotImplemented
     html_class: str = None
@@ -28,43 +36,69 @@ class Style(Element, ABC):
         return f'<{self.html_tag}{class_str}>{self.text.to_html()}</{self.html_tag}>'
 
     def __repr__(self) -> str:
-        text = str(self.text) if isinstance(self.text, self.base_style_fabric) else repr(self.text)
+        text = f"'{self.text}'" if isinstance(self.text, self.base_style_fabric) else repr(self.text)
         return f"<{self.__class__.__name__}: {text}>"
 
 
 class Bold(Style):
+    """Bold text. Example: **bold text**."""
+
     markdown_symbol = '*'
     html_tag = 'b'
 
 
 class Italic(Style):
+    """Italic text. Example: *italic text*."""
+
     markdown_symbol = '_'
     html_tag = 'i'
 
 
 class Underline(Style):
+    """Underline text. Example: :underline:`underline text`."""
+
     markdown_symbol = '__'
     html_tag = 'u'
 
 
 class Strikethrough(Style):
+    """Strikethrough text. Example: :strike:`strikethrough text`."""
+
     markdown_symbol = '~'
     html_tag = 's'
 
 
 class Spoiler(Style):
+    """Spoiler text. We can't provide an example because it's a very specific
+    for Telegram messenger formatting.
+    """
+
     markdown_symbol = '||'
     html_tag = 'span'
     html_class = 'tg-spoiler'
 
 
 class InlineCode(Style):
+    """Inline code text. Example: :code:`inline code`."""
+
     markdown_symbol = '`'
     html_tag = 'code'
     base_style_fabric = Text
 
 
 class Code(Style):
+    """Code block for many lines of text. Telegram doesn't support frontend
+    language-specific highlights, but according to documentation, it provides
+    an opportunity to specify a language. Perhaps, the Telegram team will add
+    support for this in the future.
+
+    Args:
+        text (str):
+            Text of code block.
+        language (Optional[str]):
+            Leave it empty if you don't want to specify a language.
+    """
+
     markdown_symbol = '```'
     html_tag = 'code'
     base_style_fabric = Text
@@ -75,7 +109,7 @@ class Code(Style):
         self.html_class: Optional[str] = f'language-{language}' if language else None
 
     def to_markdown(self) -> str:
-        return f"{self.markdown_symbol}{self.language}\n{self.text.to_markdown()}\n{self.markdown_symbol}"
+        return f"{self.markdown_symbol}{self.language}\n{self.text.to_markdown()}{self.markdown_symbol}"
 
     def to_html(self) -> str:
         # if lang isn't specified, we don't use <code> tag according to Telegram docs
