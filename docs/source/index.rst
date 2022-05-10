@@ -14,7 +14,7 @@ markup fast and render it to specific *html* or *MarkdownV2* formats.
 .. image:: https://github.com/SKY-ALIN/telegram-text/actions/workflows/code-quality.yml/badge.svg
    :target: https://github.com/SKY-ALIN/telegram-text
 
-.. image:: https://codecov.io/gh/SKY-ALIN/telegram-text/branch/0.1.0-docs/graph/badge.svg?token=BK0ASC89B9
+.. image:: https://codecov.io/gh/SKY-ALIN/telegram-text/branch/dev/graph/badge.svg?token=BK0ASC89B9
    :target: https://codecov.io/gh/SKY-ALIN/telegram-text
 
 .. image:: https://badge.fury.io/py/telegram-text.svg

@@ -6,7 +6,7 @@ markup fast and render it to specific _html_ and _MarkdownV2_ formats.**
 [![versions](https://img.shields.io/pypi/pyversions/telegram-text.svg)](https://github.com/SKY-ALIN/telegram-text)
 ![Tests](https://github.com/SKY-ALIN/telegram-text/actions/workflows/tests.yml/badge.svg)
 ![Code Quality](https://github.com/SKY-ALIN/telegram-text/actions/workflows/code-quality.yml/badge.svg)
-[![codecov](https://codecov.io/gh/SKY-ALIN/telegram-text/branch/0.1.0-docs/graph/badge.svg?token=BK0ASC89B9)](https://codecov.io/SKY-ALIN/SKY-ALIN/telegram-text)
+[![codecov](https://codecov.io/gh/SKY-ALIN/telegram-text/branch/dev/graph/badge.svg?token=BK0ASC89B9)](https://codecov.io/SKY-ALIN/SKY-ALIN/telegram-text)
 [![PyPI version fury.io](https://badge.fury.io/py/telegram-text.svg)](https://pypi.org/project/telegram-text/)
 [![license](https://img.shields.io/github/license/SKY-ALIN/telegram-text.svg)](https://github.com/SKY-ALIN/telegram-text/blob/main/LICENSE)
 
@@ -26,7 +26,7 @@ text = Underline(Bold("Bold") + "and" + Italic("italic") + "with underline.")
 <p align="center">
   <img 
     width="400"
-    src="https://raw.githubusercontent.com/SKY-ALIN/telegram-text/0.1.0-docs/docs/source/_static/basic_example_result.jpg"
+    src="https://raw.githubusercontent.com/SKY-ALIN/telegram-text/dev/docs/source/_static/basic_example_result.jpg"
   />
 </p>
 
@@ -56,7 +56,7 @@ menu = Chain(
 )
 ```
 
-![Advanced Example Result](https://raw.githubusercontent.com/SKY-ALIN/telegram-text/0.1.0-docs/docs/source/_static/advanced_example_result.jpg)
+![Advanced Example Result](https://raw.githubusercontent.com/SKY-ALIN/telegram-text/dev/docs/source/_static/advanced_example_result.jpg)
 
 ---
 
