@@ -91,6 +91,34 @@ Code
    :members:
    :show-inheritance:
 
+
+telegram\_text.elements
+-----------------------
+
+Link
+^^^^
+.. autoclass:: telegram_text.elements.Link
+   :members:
+   :show-inheritance:
+
+InlineUser
+^^^^^^^^^^
+.. autoclass:: telegram_text.elements.InlineUser
+   :members:
+   :show-inheritance:
+
+User
+^^^^
+.. autoclass:: telegram_text.elements.User
+   :members:
+   :show-inheritance:
+
+Hashtag
+^^^^^^^
+.. autoclass:: telegram_text.elements.Hashtag
+   :members:
+   :show-inheritance:
+
 telegram\_text.custom module
 ----------------------------
 
@@ -99,26 +127,10 @@ telegram\_text.custom module
    :undoc-members:
    :show-inheritance:
 
-telegram\_text.elements module
-------------------------------
-
-.. automodule:: telegram_text.elements
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 telegram\_text.markdown module
 ------------------------------
 
 .. automodule:: telegram_text.markdown
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: telegram_text
    :members:
    :undoc-members:
    :show-inheritance:

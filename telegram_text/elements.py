@@ -1,25 +1,57 @@
-from typing import Callable
+"""All classes in this file provide similar signatures.
+
+They all have :code:`text: str` and
+:code:`style: Callable[[Union[str, Element]], Element])` arguments.
+
+:code:`style` is a factory that will be applied to the element.
+"""
+
+from typing import Callable, Union
 
 from .bases import Element, Text, PlainText
 
 
 class Link(Element):
-    def __init__(self, text: str, url: str, style: Callable[[str], Element] = Text):
-        self.text = PlainText(text)
+    """Inline link element.
+
+    Args:
+        text (str):
+            Text of link.
+        url (str):
+            Web address on the internet.
+        style (Callable[[Union[str, Element]], Element]):
+            Style factory which will be applied to the element.
+            :class:`telegram_text.bases.PlainText` by default.
+    """
+
+    def __init__(self, text: str, url: str, style: Callable[[Union[str, Element]], Element] = PlainText):
+        self.text: Element = style(text)
         self.url = url
-        self.style = style
 
     def to_plain_text(self) -> str:
-        return self.style(f"{self.text} {self.url}").to_plain_text()
+        return f"{self.text.to_plain_text()} ({self.url})"
 
     def to_markdown(self) -> str:
-        return self.style(f"[{self.text}]({self.url})").to_markdown()
+        return f"[{self.text.to_markdown()}]({self.url})"
 
     def to_html(self) -> str:
-        return self.style(f'<a href="{self.url}">{self.text}</a>').to_html()
+        return f'<a href="{self.url}">{self.text.to_html()}</a>'
 
 
 class InlineUser(Link):
+    """Inline link to user with specific for Telegram url
+    (:code:`tg://user?id={}`).
+
+    Args:
+        text (str):
+            Text of link.
+        user_id (int):
+            Identifier of user.
+        style (Callable[[Union[str, Element]], Element]):
+            Style factory which will be applied to the element.
+            :class:`telegram_text.bases.PlainText` by default.
+    """
+
     def __init__(self, text: str, user_id: int, style: Callable[[str], Element] = Text):
         url = f"tg://user?id={user_id}"
         super().__init__(text=text, url=url, style=style)
@@ -39,13 +71,32 @@ class _Reference(Element):
         return self.text.to_html()
 
 
-class Hashtag(_Reference):
-    def __init__(self, text: str, style: Callable[[str], Element] = PlainText):
-        text = '#' + text.lstrip('#')
+class User(_Reference):
+    """Link to user by nickname.
+
+    Args:
+        text (str):
+            Nickname of user.
+        style (Callable[[Union[str, Element]], Element]):
+            Style factory which will be applied to the element.
+            :class:`telegram_text.bases.PlainText` by default.
+    """
+
+    def __init__(self, text: str, style: Callable[[Union[str, Element]], Element] = PlainText):
+        text = '@' + text.lstrip('@')
         super().__init__(text, style=style)
 
 
-class User(_Reference):
-    def __init__(self, text: str, style: Callable[[str], Element] = PlainText):
-        text = '@' + text.lstrip('@')
+class Hashtag(_Reference):
+    """Hashtag link element.
+
+    Args:
+        text (str):
+            Hashtag name.
+        style (Callable[[Union[str, Element]], Element]):
+            Style factory which will be applied to the element.
+            :class:`telegram_text.bases.PlainText` by default.
+    """
+    def __init__(self, text: str, style: Callable[[Union[str, Element]], Element] = PlainText):
+        text = '#' + text.lstrip('#')
         super().__init__(text, style=style)

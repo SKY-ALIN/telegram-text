@@ -106,7 +106,7 @@ class Chain(Element):
 
     Args:
         elements (Tuple[Element]): Any objects with :class:`AbstractElement` interface.
-        sep (str, :const:`SPACE`): The separator between elements.
+        sep (str): The separator between elements. :const:`SPACE` by default.
     """
 
     def __init__(self, *elements: Element, sep: str = SPACE):
