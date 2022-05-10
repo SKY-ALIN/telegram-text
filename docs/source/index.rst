@@ -89,6 +89,7 @@ Advanced Example
    :caption: Development
    :hidden:
 
+   changelog
    license
    GitHub Repository <https://github.com/SKY-ALIN/telegram-text>
    PyPI Page <https://pypi.org/project/telegram-text/>
