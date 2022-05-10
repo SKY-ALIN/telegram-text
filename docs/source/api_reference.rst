@@ -95,6 +95,9 @@ Code
 telegram\_text.elements
 -----------------------
 
+.. automodule:: telegram_text.elements
+   :exclude-members: Link, InlineUser, User, Hashtag
+
 Link
 ^^^^
 .. autoclass:: telegram_text.elements.Link
@@ -119,18 +122,30 @@ Hashtag
    :members:
    :show-inheritance:
 
+
+telegram\_text.markdown
+-----------------------
+
+.. automodule:: telegram_text.markdown
+   :exclude-members: UnorderedList, OrderedList
+
+UnorderedList
+^^^^^^^^^^^^^
+.. autoclass:: telegram_text.markdown.UnorderedList
+   :members:
+   :show-inheritance:
+
+OrderedList
+^^^^^^^^^^^^^
+.. autoclass:: telegram_text.markdown.OrderedList
+   :members:
+   :show-inheritance:
+
+
 telegram\_text.custom module
 ----------------------------
 
 .. automodule:: telegram_text.custom
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-telegram\_text.markdown module
-------------------------------
-
-.. automodule:: telegram_text.markdown
    :members:
    :undoc-members:
    :show-inheritance:
