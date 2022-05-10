@@ -36,7 +36,7 @@ class Style(Element, ABC):
         return f'<{self.html_tag}{class_str}>{self.text.to_html()}</{self.html_tag}>'
 
     def __repr__(self) -> str:
-        text = str(self.text) if isinstance(self.text, self.base_style_fabric) else repr(self.text)
+        text = f"'{self.text}'" if isinstance(self.text, self.base_style_fabric) else repr(self.text)
         return f"<{self.__class__.__name__}: {text}>"
 
 

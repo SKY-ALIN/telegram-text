@@ -78,7 +78,7 @@ class Text(Element):
         return self.text
 
     def __repr__(self) -> str:
-        return f"<{self.__class__.__name__}: {self.text}>"
+        return f"<{self.__class__.__name__}: '{self.text}'>"
 
 
 class PlainText(Text):
@@ -133,3 +133,10 @@ class Chain(Element):
 
     def to_html(self) -> str:
         return self.sep.join(element.to_html() for element in self.elements)
+
+    def __repr__(self):
+        return (
+            f"<{self.__class__.__name__}: "
+            f"{' + '.join(repr(element) for element in self.elements)}, "
+            f"sep='{self.sep}'>"
+        )
