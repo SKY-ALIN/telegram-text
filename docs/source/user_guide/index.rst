@@ -49,7 +49,7 @@ because it doesn't have escaping, so Telegram API may reject you.
 
    .. code-block:: python
 
-      >>> PlainText(text.to_plain_text()).to_markdown()
+      >>> PlainText(text).to_markdown()
       'Hello world \\!\\!\\!'
 
    It'll add an escaping.
