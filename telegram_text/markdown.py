@@ -6,7 +6,7 @@ elements to Telegram.
 
 from typing import Callable
 
-from .bases import Chain, Element, NEW_LINE
+from .bases import NEW_LINE, Chain, Element
 from .styles import Bold, PlainText
 
 

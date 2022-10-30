@@ -8,7 +8,7 @@ They all have :code:`text: str` and
 
 from typing import Callable, Union
 
-from .bases import Element, Text, PlainText
+from .bases import Element, PlainText, Text
 
 
 class Link(Element):

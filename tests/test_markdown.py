@@ -1,5 +1,5 @@
-from telegram_text.styles import PlainText, Bold, Underline
 from telegram_text.markdown import OrderedList, UnorderedList
+from telegram_text.styles import Bold, PlainText, Underline
 
 
 def test_ordered_list():

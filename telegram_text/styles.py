@@ -1,5 +1,5 @@
 from abc import ABC
-from typing import Union, Optional
+from typing import Union
 
 from .bases import Element, PlainText, Text
 
@@ -106,7 +106,7 @@ class Code(Style):
     def __init__(self, text: str, language: str = None):
         super().__init__(text)
         self.language: str = language or ''
-        self.html_class: Optional[str] = f'language-{language}' if language else None
+        self.html_class: Union[str, None] = f'language-{language}' if language else None
 
     def to_markdown(self) -> str:
         return f"{self.markdown_symbol}{self.language}\n{self.text.to_markdown()}{self.markdown_symbol}"

@@ -4,9 +4,9 @@ from telegram_text.styles import (
     Code,
     InlineCode,
     Italic,
-    Underline,
-    Strikethrough,
     Spoiler,
+    Strikethrough,
+    Underline,
 )
 
 testing_string = "Hello world"

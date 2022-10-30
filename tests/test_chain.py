@@ -1,5 +1,5 @@
 from telegram_text.bases import Chain
-from telegram_text.styles import Bold, Italic, InlineCode, Spoiler
+from telegram_text.styles import Bold, InlineCode, Italic, Spoiler
 
 
 def test_chain_structure():
