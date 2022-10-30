@@ -45,6 +45,9 @@ class Element(AbstractElement, ABC):
             other = PlainText(other)
         return Chain(self, other)
 
+    def __radd__(self, other: str) -> "Chain":
+        return PlainText(other).__add__(self)
+
     def __eq__(self, other: "Element"):
         """Equality function to write
         :code:`<Element object> == <Element object>`.
