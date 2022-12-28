@@ -15,6 +15,13 @@ markup fast and render it to specific _html_ and _MarkdownV2_ formats.**
 ### Installation
 Install using `pip install telegram-text` or `poetry add telegram-text`
 
+Also, `telegram-text` is integrated into following packages:
+
+| Module | Installation | Import | Documentation |
+| ------ | ------------ | ------ | ------------- |
+| [OrigamiBot](https://github.com/cmd410/OrigamiBot) | `pip install origamibot[telegram-text]` | `from origamibot.text import ...` | [Release](https://github.com/cmd410/OrigamiBot/releases/tag/v2.3.0) |
+| [TGramBot](https://github.com/KeralaBots/TGramBot) | `pip install tgrambot` | `from tgrambot.text import ...` | [Readme](https://github.com/KeralaBots/TGramBot/blob/alpha/README.md) |
+
 ### Basic Example
 
 ```python
