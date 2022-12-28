@@ -1,13 +1,5 @@
 from telegram_text.bases import PlainText
-from telegram_text.styles import (
-    Bold,
-    Code,
-    InlineCode,
-    Italic,
-    Spoiler,
-    Strikethrough,
-    Underline,
-)
+from telegram_text.styles import Bold, Code, InlineCode, Italic, Spoiler, Strikethrough, Underline
 
 testing_string = "Hello world"
 

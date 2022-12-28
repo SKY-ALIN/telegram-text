@@ -1,5 +1,6 @@
-from abc import ABC, abstractmethod
 from typing import Union
+
+from abc import ABC, abstractmethod
 
 NEW_LINE = '\n'  #: New line character constant.
 SPACE = ' '  #: Space character constant.
