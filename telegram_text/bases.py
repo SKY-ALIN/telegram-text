@@ -49,10 +49,12 @@ class Element(AbstractElement, ABC):
     def __radd__(self, other: str) -> "Chain":
         return PlainText(other).__add__(self)
 
-    def __eq__(self, other: "Element"):
+    def __eq__(self, other: object) -> bool:
         """Equality function to write
         :code:`<Element object> == <Element object>`.
         """
+        if not isinstance(other, Element):
+            return NotImplemented
         return type(self) is type(other) and self.to_plain_text() == other.to_plain_text()
 
     def __str__(self) -> str:

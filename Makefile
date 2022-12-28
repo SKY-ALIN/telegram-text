@@ -6,6 +6,7 @@ isort: # Sort import statements
 lint: # Check code quality
 	flake8
 	find telegram_text tests -iname "*.py" | xargs pylint
+	mypy .
 test: # Run tests
 	pytest --cov=telegram_text tests/
 html_docs: # Build html docs
