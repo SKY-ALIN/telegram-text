@@ -44,3 +44,4 @@ jobs:
         source .venv/bin/activate
         flake8 telegram_text
         find . -iname "*.py" -not -path "./.venv/*" -not -path "./docs/*" | xargs pylint
+        mypy telegram_text

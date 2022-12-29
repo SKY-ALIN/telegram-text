@@ -1,5 +1,6 @@
+from typing import Type, Union
+
 from abc import ABC
-from typing import Union, Optional
 
 from .bases import Element, PlainText, Text
 
@@ -13,15 +14,15 @@ class Style(Element, ABC):
             Text or Element to which the style will be applied.
     """
 
-    markdown_symbol: str = NotImplemented
-    html_tag: str = NotImplemented
-    html_class: str = None
-    base_style_fabric = PlainText
+    markdown_symbol: str
+    html_tag: str
+    html_class: Union[str, None] = None
+    base_style_fabric: Union[Type[Text], Type['Style']] = PlainText
 
     def __init__(self, text: Union[str, Element]):
         if isinstance(text, str):
             text = self.base_style_fabric(text)
-        if self.__class__ is text.__class__:
+        if isinstance(text, Style) and self.__class__ is text.__class__:
             text = text.text
         self.text: Element = text
 
@@ -103,10 +104,10 @@ class Code(Style):
     html_tag = 'code'
     base_style_fabric = Text
 
-    def __init__(self, text: str, language: str = None):
+    def __init__(self, text: str, language: Union[str, None] = None):
         super().__init__(text)
         self.language: str = language or ''
-        self.html_class: Optional[str] = f'language-{language}' if language else None
+        self.html_class: Union[str, None] = f'language-{language}' if language else None
 
     def to_markdown(self) -> str:
         return f"{self.markdown_symbol}{self.language}\n{self.text.to_markdown()}{self.markdown_symbol}"
