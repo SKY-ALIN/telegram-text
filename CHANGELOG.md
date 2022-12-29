@@ -1,3 +1,7 @@
+## 0.1.1 (30.12.2022)
+* Add `__radd__` method
+* Update typehints according to mypy
+
 ## 0.1.0 (11.05.2022)
 * Add `telegram_text.bases` submodule
   * `Chain`
