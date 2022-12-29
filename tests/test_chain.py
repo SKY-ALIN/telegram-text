@@ -1,5 +1,5 @@
 from telegram_text.bases import Chain
-from telegram_text.styles import Bold, Italic, InlineCode, Spoiler
+from telegram_text.styles import Bold, InlineCode, Italic, Spoiler
 
 
 def test_chain_structure():
@@ -53,3 +53,10 @@ def test_nested_styles_combination():
 
     assert obj.to_plain_text() == "Bold and italic"
     assert obj.to_markdown() == "||*Bold* and _italic_||"
+
+
+def test_reverse():
+    obj = "s1" + Italic("e")
+    obj = "s2" + obj
+    assert isinstance(obj, Chain)
+    assert obj.to_plain_text() == "s2 s1 e"

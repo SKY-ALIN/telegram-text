@@ -1,10 +1,10 @@
 from .bases import Chain, PlainText, Text
-from .styles import Bold, Code, InlineCode, Italic, Spoiler, Strikethrough, Underline
+from .custom import TOMLSection
 from .elements import Hashtag, InlineUser, Link, User
 from .markdown import OrderedList, UnorderedList
-from .custom import TOMLSection
+from .styles import Bold, Code, InlineCode, Italic, Spoiler, Strikethrough, Underline
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 __all__ = [
     "Chain",
     "PlainText",

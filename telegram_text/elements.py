@@ -8,7 +8,7 @@ They all have :code:`text: str` and
 
 from typing import Callable, Union
 
-from .bases import Element, Text, PlainText
+from .bases import Element, PlainText, Text
 
 
 class Link(Element):
@@ -52,7 +52,7 @@ class InlineUser(Link):
             :class:`telegram_text.bases.PlainText` by default.
     """
 
-    def __init__(self, text: str, user_id: int, style: Callable[[str], Element] = Text):
+    def __init__(self, text: str, user_id: int, style: Callable[[Union[str, Element]], Element] = Text):
         url = f"tg://user?id={user_id}"
         super().__init__(text=text, url=url, style=style)
 

@@ -29,6 +29,25 @@ Installation
 
 Install using :code:`pip install telegram-text` or :code:`poetry add telegram-text`.
 
+Also, :code:`telegram-text` is integrated into following packages:
+
+.. list-table::
+   :align: center
+   :header-rows: 1
+
+   * - Module
+     - Installation
+     - Import
+     - Documentation
+   * - `OrigamiBot <https://github.com/cmd410/OrigamiBot>`_
+     - :code:`pip install origamibot[telegram-text]`
+     - :code:`from origamibot.text import ...`
+     - `Release <https://github.com/cmd410/OrigamiBot/releases/tag/v2.3.0>`_
+   * - `TGramBot <https://github.com/KeralaBots/TGramBot>`_
+     - :code:`pip install tgrambot`
+     - :code:`from tgrambot.text import ...`
+     - `Readme <https://github.com/KeralaBots/TGramBot/blob/alpha/README.md>`_
+
 
 Basic Example
 -------------

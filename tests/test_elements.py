@@ -1,5 +1,5 @@
-from telegram_text.elements import Hashtag, Link, InlineUser, User
 from telegram_text.bases import PlainText
+from telegram_text.elements import Hashtag, InlineUser, Link, User
 from telegram_text.styles import Bold, Italic
 
 
