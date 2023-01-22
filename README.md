@@ -19,6 +19,7 @@ Also, `telegram-text` is integrated into following packages:
 
 | Module | Installation | Import | Documentation |
 | ------ | ------------ | ------ | ------------- |
+| [python-telegram](https://github.com/alexander-akhmetov/python-telegram) | `pip install python-telegram` | `from telegram.text import ...` | [Readme](https://github.com/alexander-akhmetov/python-telegram/blob/master/README.md) |
 | [OrigamiBot](https://github.com/cmd410/OrigamiBot) | `pip install origamibot[telegram-text]` | `from origamibot.text import ...` | [Release](https://github.com/cmd410/OrigamiBot/releases/tag/v2.3.0) |
 | [TGramBot](https://github.com/KeralaBots/TGramBot) | `pip install tgrambot` | `from tgrambot.text import ...` | [Readme](https://github.com/KeralaBots/TGramBot/blob/alpha/README.md) |
 

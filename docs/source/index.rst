@@ -39,6 +39,10 @@ Also, :code:`telegram-text` is integrated into following packages:
      - Installation
      - Import
      - Documentation
+   * - `python-telegram <https://github.com/alexander-akhmetov/python-telegram>`_
+     - :code:`pip install python-telegram`
+     - :code:`from telegram.text import ...`
+     - `Readme <https://github.com/alexander-akhmetov/python-telegram/blob/master/README.md>`_
    * - `OrigamiBot <https://github.com/cmd410/OrigamiBot>`_
      - :code:`pip install origamibot[telegram-text]`
      - :code:`from origamibot.text import ...`
