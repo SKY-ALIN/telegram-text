@@ -34,7 +34,7 @@ furo = "^2022.9.29"
 m2r2 = "^0.3.2"
 sphinx-copybutton = "^0.5.0"
 no-optional = "^0.4.0"
-isort = "^5.11.4"
+isort = "^5.11.5"
 mypy = "^0.991"
 
 [build-system]
