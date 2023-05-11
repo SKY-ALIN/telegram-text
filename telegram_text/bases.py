@@ -88,7 +88,7 @@ class Text(Element):
 
 
 class PlainText(Text):
-    """Basic text element you can safety use. This element implements escaping
+    """Basic text element you can safely use. This element implements escaping
     logic.
     """
 
