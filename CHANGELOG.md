@@ -1,3 +1,6 @@
+## 0.1.2 (30.05.2023)
+* Fix issue #39 (Incorrect LICENSE file inclusion)
+
 ## 0.1.1 (30.12.2022)
 * Add `__radd__` method
 * Update typehints according to mypy
