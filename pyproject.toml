@@ -8,9 +8,6 @@ readme = "README.md"
 homepage = "https://telegram-text.alinsky.tech"
 repository = "https://github.com/SKY-ALIN/telegram-text"
 keywords = ["telegram", "markup", "markdown", "formating"]
-include = [
-    "LICENSE",
-]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "License :: OSI Approved :: MIT License",
