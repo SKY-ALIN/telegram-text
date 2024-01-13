@@ -11,6 +11,7 @@ You can import as :code:`from telegram_text import ...` following elements:
 * :class:`telegram_text.styles.Code`
 * :class:`telegram_text.styles.InlineCode`
 * :class:`telegram_text.styles.Italic`
+* :class:`telegram_text.styles.Quote`
 * :class:`telegram_text.styles.Spoiler`
 * :class:`telegram_text.styles.Strikethrough`
 * :class:`telegram_text.styles.Underline`
@@ -85,6 +86,10 @@ telegram\_text.styles
    :show-inheritance:
 
 .. autoclass:: telegram_text.styles.Code
+   :members:
+   :show-inheritance:
+
+.. autoclass:: telegram_text.styles.Quote
    :members:
    :show-inheritance:
 
