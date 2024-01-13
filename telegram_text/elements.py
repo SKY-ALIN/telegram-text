@@ -100,3 +100,18 @@ class Hashtag(_Reference):
     def __init__(self, text: str, style: Callable[[Union[str, Element]], Element] = PlainText):
         text = '#' + text.lstrip('#')
         super().__init__(text, style=style)
+
+
+class Emoji(Element):
+    def __init__(self, emoji_id: int, default: str):
+        self.emoji_id = emoji_id
+        self.default = default
+
+    def to_plain_text(self) -> str:
+        return self.default
+
+    def to_markdown(self) -> str:
+        return f"![{self.default}](tg://emoji?id={self.emoji_id})"
+
+    def to_html(self) -> str:
+        return f'<tg-emoji emoji-id="{self.emoji_id}">{self.default}</tg-emoji>'

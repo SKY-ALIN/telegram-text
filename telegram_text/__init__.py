@@ -1,6 +1,6 @@
 from .bases import Chain, PlainText, Text
 from .custom import TOMLSection
-from .elements import Hashtag, InlineUser, Link, User
+from .elements import Emoji, Hashtag, InlineUser, Link, User
 from .markdown import OrderedList, UnorderedList
 from .styles import Bold, Code, InlineCode, Italic, Spoiler, Strikethrough, Underline
 
@@ -18,6 +18,7 @@ __all__ = [
     "Strikethrough",
     "Underline",
 
+    "Emoji",
     "Hashtag",
     "InlineUser",
     "Link",
