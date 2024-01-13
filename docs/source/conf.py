@@ -23,7 +23,7 @@ copyright = '2024, Vladimir Alinsky'  # pylint: disable=redefined-builtin
 author = 'Vladimir Alinsky'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.2'
+release = '0.2.0'
 
 
 # -- General configuration ---------------------------------------------------
