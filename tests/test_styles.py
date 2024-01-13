@@ -1,5 +1,5 @@
 from telegram_text.bases import PlainText
-from telegram_text.styles import Bold, Code, InlineCode, Italic, Spoiler, Strikethrough, Underline
+from telegram_text.styles import Bold, Code, InlineCode, Italic, Quote, Spoiler, Strikethrough, Underline
 
 testing_string = "Hello world"
 
@@ -87,3 +87,28 @@ def test_code_block_with_language():
     assert str(obj) == f'```{language}\n' + testing_string + '```'
     assert obj.to_markdown() == f'```{language}\n' + testing_string + '```'
     assert obj.to_html() == f'<pre><code class="language-{language}">' + testing_string + '</code></pre>'
+
+
+def test_quote_block():
+    obj = Quote(
+        "Block quotation started\n"
+        "Block quotation continued\n"
+        "The last line of the block quotation"
+    )
+    assert obj.to_plain_text() == (
+        "Block quotation started\n"
+        "Block quotation continued\n"
+        "The last line of the block quotation"
+    )
+    assert obj.to_markdown() == (
+        ">Block quotation started\n"
+        ">Block quotation continued\n"
+        ">The last line of the block quotation"
+    )
+    assert obj.to_html() == (
+        "<blockquote>"
+        "Block quotation started\n"
+        "Block quotation continued\n"
+        "The last line of the block quotation"
+        "</blockquote>"
+    )
