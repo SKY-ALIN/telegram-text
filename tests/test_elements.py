@@ -1,5 +1,5 @@
 from telegram_text.bases import PlainText
-from telegram_text.elements import Hashtag, InlineUser, Link, User
+from telegram_text.elements import Emoji, Hashtag, InlineUser, Link, User
 from telegram_text.styles import Bold, Italic
 
 
@@ -59,3 +59,10 @@ def test_user_main_styling():
     assert Italic(User("user")).to_markdown() == "_@user_"
     assert Bold(Italic(User("user"))).to_markdown() == "*_@user_*"
     assert Bold(Italic(User("user"))).to_plain_text() == "@user"
+
+
+def test_custom_emoji():
+    emoji = Emoji(emoji_id=5368324170671202286, default="👍")
+    assert emoji.to_plain_text() == "👍"
+    assert emoji.to_markdown() == "![👍](tg://emoji?id=5368324170671202286)"
+    assert emoji.to_html() == '<tg-emoji emoji-id="5368324170671202286">👍</tg-emoji>'

@@ -7,32 +7,32 @@ license = "MIT"
 readme = "README.md"
 homepage = "https://telegram-text.alinsky.tech"
 repository = "https://github.com/SKY-ALIN/telegram-text"
-keywords = ["telegram", "markup", "markdown", "formating"]
+keywords = ["telegram", "markup", "markdown", "html", "formating"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
 ]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.4.4"
-pylint = "^2.13.9"
+pylint = "^3.0.3"
 pytest-cov = "^4.1.0"
-Sphinx = "^4"
-flake8 = "^5.0.4"
-furo = "^2022.9.29"
-m2r2 = "^0.3.2"
+Sphinx = "^6.2.1"
+flake8 = "^7.0.0"
+furo = "^2023.9.10"
+m2r2 = "^0.3.3.post2"
 sphinx-copybutton = "^0.5.2"
 no-optional = "^0.4.0"
-isort = "^5.11.5"
-mypy = "^1.4"
+isort = "^5.13.2"
+mypy = "^1.8"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

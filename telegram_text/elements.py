@@ -97,6 +97,37 @@ class Hashtag(_Reference):
             Style factory which will be applied to the element.
             :class:`telegram_text.bases.PlainText` by default.
     """
+
     def __init__(self, text: str, style: Callable[[Union[str, Element]], Element] = PlainText):
         text = '#' + text.lstrip('#')
         super().__init__(text, style=style)
+
+
+class Emoji(Element):
+    """Custom Telegram emoji.
+
+    Custom emoji entities can only be used by bots that purchased additional
+    usernames on `Fragment <https://fragment.com/>`_.
+
+    Args:
+        emoji_id (int):
+            Id of the custom emoji.
+        default (str):
+            Alternative value for the custom emoji.
+            The emoji will be shown instead of the custom emoji in places
+            where a custom emoji cannot be displayed (e.g., system
+            notifications) or if the message is forwarded by a non-premium user.
+    """
+
+    def __init__(self, emoji_id: int, default: str):
+        self.emoji_id = emoji_id
+        self.default = default
+
+    def to_plain_text(self) -> str:
+        return self.default
+
+    def to_markdown(self) -> str:
+        return f"![{self.default}](tg://emoji?id={self.emoji_id})"
+
+    def to_html(self) -> str:
+        return f'<tg-emoji emoji-id="{self.emoji_id}">{self.default}</tg-emoji>'
