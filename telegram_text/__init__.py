@@ -2,9 +2,9 @@ from .bases import Chain, PlainText, Text
 from .custom import TOMLSection
 from .elements import Emoji, Hashtag, InlineUser, Link, User
 from .markdown import OrderedList, UnorderedList
-from .styles import Bold, Code, InlineCode, Italic, Spoiler, Strikethrough, Underline
+from .styles import Bold, Code, InlineCode, Italic, Quote, Spoiler, Strikethrough, Underline
 
-__version__ = '0.1.2'
+__version__ = '0.2.0'
 __all__ = [
     "Chain",
     "PlainText",
@@ -14,6 +14,7 @@ __all__ = [
     "Code",
     "InlineCode",
     "Italic",
+    "Quote",
     "Spoiler",
     "Strikethrough",
     "Underline",

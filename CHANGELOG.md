@@ -1,3 +1,9 @@
+## 0.2.0 (13.01.2024)
+* Add `Emoji` element
+* Add `Quote` style
+* Add support fort Python 3.12
+* Drop support for Python 3.7
+
 ## 0.1.2 (30.05.2023)
 * Fix issue #39 (Incorrect LICENSE file inclusion)
 

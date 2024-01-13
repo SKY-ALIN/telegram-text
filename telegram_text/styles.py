@@ -117,3 +117,21 @@ class Code(Style):
         if self.html_class:
             return f'<pre>{super().to_html()}</pre>'
         return f'<pre>{self.text.to_html()}</pre>'
+
+
+class Quote(Style):
+    """Quote block.
+    See an example below.
+
+        Block quotation started
+
+        Block quotation continued
+
+        The last line of the block quotation
+    """
+
+    markdown_symbol = '>'
+    html_tag = 'blockquote'
+
+    def to_markdown(self) -> str:
+        return self.markdown_symbol + f'\n{self.markdown_symbol}'.join(self.text.to_markdown().split('\n'))
