@@ -22,7 +22,7 @@ classifiers = [
 python = "^3.8.1"
 
 [tool.poetry.dev-dependencies]
-pytest = "^8.0.1"
+pytest = "^8.1.0"
 pylint = "^3.0.3"
 pytest-cov = "^4.1.0"
 Sphinx = "^7.1.2"
